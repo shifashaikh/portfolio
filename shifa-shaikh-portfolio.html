@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shifa Shaikh — Senior Full-Stack Developer · React · Node · AWS</title>
+<meta name="description" content="Shifa Shaikh — Senior Full-Stack Developer with 5+ years building scalable React, Node.js and AWS serverless products. Open to relocation." />
+<style>
+  :root{
+    --bg:#0b0b12; --bg-2:#13121d; --card:#181624; --card-2:#1e1b2e;
+    --line:rgba(255,255,255,.08); --text:#f1edfa; --muted:#a99fc4;
+    --accent:#a855f7; --accent-2:#ec4899; --accent-3:#f59e0b;
+    --glow:0 0 40px rgba(168,85,247,.28); --radius:18px; --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:radial-gradient(1200px 600px at 85% -10%,rgba(236,72,153,.12),transparent 60%),
+               radial-gradient(900px 500px at -10% 15%,rgba(168,85,247,.14),transparent 55%),
+               var(--bg);
+    color:var(--text);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .mono{font-family:'SFMono-Regular',ui-monospace,'JetBrains Mono',Consolas,monospace}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(11,11,18,.6);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{font-weight:800;letter-spacing:.5px;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:var(--glow)}
+  .navlinks{display:flex;gap:26px;font-size:.92rem;color:var(--muted)}
+  .navlinks a:hover{color:var(--text)}
+  .navlinks a{position:relative}
+  .navlinks a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:.3s}
+  .navlinks a:hover::after{width:100%}
+  @media(max-width:760px){.navlinks{display:none}}
+
+  header{position:relative;padding:90px 0 70px}
+  .pill{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--accent-2);border:1px solid rgba(236,72,153,.3);background:rgba(236,72,153,.06);padding:6px 14px;border-radius:999px;margin-bottom:22px}
+  .pill .live{width:8px;height:8px;border-radius:50%;background:var(--accent-2);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(236,72,153,.6)}70%{box-shadow:0 0 0 10px rgba(236,72,153,0)}100%{box-shadow:0 0 0 0 rgba(236,72,153,0)}}
+  h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.04;font-weight:800;letter-spacing:-1.5px}
+  h1 .grad{background:linear-gradient(120deg,var(--accent),var(--accent-2) 55%,var(--accent-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .role{font-size:clamp(1.05rem,2.5vw,1.4rem);color:var(--muted);margin-top:18px;max-width:680px}
+  .meta{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;font-size:.9rem;color:var(--muted)}
+  .meta span{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);padding:7px 13px;border-radius:10px;background:var(--card)}
+  .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+  .btn{padding:13px 24px;border-radius:12px;font-weight:600;font-size:.95rem;transition:.25s;border:1px solid transparent;cursor:pointer}
+  .btn.primary{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#160a1f;box-shadow:var(--glow)}
+  .btn.primary:hover{transform:translateY(-2px)}
+  .btn.ghost{border-color:var(--line);color:var(--text);background:var(--card)}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:36px}}
+  .term{background:linear-gradient(180deg,var(--card-2),var(--card));border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 30px 70px rgba(0,0,0,.5);overflow:hidden}
+  .term-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+  .term-bar i{width:12px;height:12px;border-radius:50%;display:inline-block}
+  .term-bar .r{background:#ff5f57}.term-bar .y{background:#febc2e}.term-bar .g{background:#28c840}
+  .term-bar span{margin-left:10px;font-size:.78rem;color:var(--muted)}
+  .term-body{padding:20px;font-size:.86rem}
+  .term-body .l{margin-bottom:6px}
+  .c-key{color:var(--accent-3)}.c-str{color:#f0abfc}.c-num{color:var(--accent-2)}.c-com{color:var(--muted)}
+  .cursor{display:inline-block;width:9px;height:16px;background:var(--accent-2);vertical-align:middle;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  section{padding:72px 0;border-top:1px solid var(--line)}
+  .eyebrow{font-size:.82rem;letter-spacing:3px;text-transform:uppercase;color:var(--accent-2);margin-bottom:12px}
+  h2{font-size:clamp(1.6rem,3.6vw,2.4rem);font-weight:800;letter-spacing:-.5px;margin-bottom:10px}
+  .lead{color:var(--muted);max-width:720px;margin-bottom:38px}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;position:relative;overflow:hidden}
+  .stat::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(168,85,247,.12),transparent);opacity:0;transition:.3s}
+  .stat:hover::before{opacity:1}
+  .stat .n{font-size:2.2rem;font-weight:800;background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .t{color:var(--muted);font-size:.88rem;margin-top:4px}
+
+  .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  @media(max-width:760px){.skills{grid-template-columns:1fr}}
+  .skill-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .skill-card h3{font-size:1rem;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .skill-card h3 .ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:rgba(168,85,247,.14);color:var(--accent-2)}
+  .bar{margin-bottom:14px}
+  .bar .top{display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:6px}
+  .bar .top .pct{color:var(--muted)}
+  .track{height:8px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden}
+  .fill{height:100%;border-radius:99px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{font-size:.8rem;color:var(--muted);border:1px solid var(--line);padding:6px 12px;border-radius:9px;background:var(--bg-2);transition:.2s}
+  .chip:hover{color:var(--accent-2);border-color:var(--accent-2);transform:translateY(-2px)}
+
+  .tl{position:relative;margin-top:10px}
+  .tl::before{content:"";position:absolute;left:18px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent-3))}
+  .tl-item{position:relative;padding:0 0 34px 56px}
+  .tl-item .node{position:absolute;left:9px;top:4px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:3px solid var(--accent-2);box-shadow:var(--glow)}
+  .tl-item .when{font-size:.8rem;color:var(--accent-2);font-weight:600}
+  .tl-item h3{font-size:1.12rem;margin:3px 0 2px}
+  .tl-item .org{color:var(--muted);font-size:.9rem;margin-bottom:10px}
+  .tl-item ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .tl-item li{position:relative;padding-left:18px;color:#d8cfe9;font-size:.93rem}
+  .tl-item li::before{content:"▹";position:absolute;left:0;color:var(--accent-2)}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:880px){.grid3{grid-template-columns:1fr}}
+  .proj{background:linear-gradient(180deg,var(--card-2),var(--card));border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.3s;position:relative;overflow:hidden}
+  .proj:hover{transform:translateY(-6px);border-color:var(--accent)}
+  .proj .tag{font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--accent-2)}
+  .proj h3{font-size:1.18rem;margin:8px 0 10px}
+  .proj p{color:var(--muted);font-size:.92rem;margin-bottom:16px}
+  .proj .stack{display:flex;flex-wrap:wrap;gap:7px}
+  .proj .stack span{font-size:.74rem;color:#cabfe0;border:1px solid var(--line);padding:4px 9px;border-radius:7px}
+
+  .contact{text-align:center}
+  .contact h2{margin-bottom:14px}
+  .contact .lead{margin:0 auto 30px}
+  .links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  footer{padding:40px 0;text-align:center;color:var(--muted);font-size:.84rem;border-top:1px solid var(--line)}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> Shifa Shaikh</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill"><span class="live"></span> Open to relocation &amp; · Visa sponsorship welcome</span>
+      <h1>Senior Full-Stack<br><span class="grad">Developer</span></h1>
+      <p class="role">I design and ship scalable web &amp; cloud products end-to-end — fast React front-ends, robust Node APIs, and serverless AWS architecture that grows with the business. 5+ years, multi-tenant SaaS to data platforms.</p>
+      <div class="meta">
+        <span>📍 Pune, India</span>
+        <span>🌍 Open to relocation</span>
+        <span>⚡ React · Node · AWS</span>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Let's build →</a>
+        <a class="btn ghost" href="#projects">See projects</a>
+      </div>
+    </div>
+    <div class="term reveal">
+      <div class="term-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>shifa@fullstack ~ developer.ts</span></div>
+      <div class="term-body mono">
+        <div class="l"><span class="c-com">// 5+ years of scalable web &amp; cloud</span></div>
+        <div class="l"><span class="c-key">const</span> shifa = {</div>
+        <div class="l">&nbsp;&nbsp;title: <span class="c-str">"Senior Full Stack Developer"</span>,</div>
+        <div class="l">&nbsp;&nbsp;frontend: [<span class="c-str">"React"</span>, <span class="c-str">"Redux"</span>, <span class="c-str">"Tailwind"</span>],</div>
+        <div class="l">&nbsp;&nbsp;backend: [<span class="c-str">"Node"</span>, <span class="c-str">"Express"</span>, <span class="c-str">"REST"</span>],</div>
+        <div class="l">&nbsp;&nbsp;cloud: [<span class="c-str">"AWS Lambda"</span>, <span class="c-str">"S3"</span>, <span class="c-str">"Cognito"</span>, <span class="c-str">"RDS"</span>],</div>
+        <div class="l">&nbsp;&nbsp;architecture: <span class="c-str">"Serverless · Microservices"</span>,</div>
+        <div class="l">&nbsp;&nbsp;relocation: <span class="c-num">true</span>,</div>
+        <div class="l">};<span class="cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat reveal"><div class="n" data-count="5" data-suffix="+">0</div><div class="t">Years full-stack</div></div>
+      <div class="stat reveal"><div class="n" data-count="20" data-suffix="+">0</div><div class="t">Largest team shipped with</div></div>
+      <div class="stat reveal"><div class="n" data-count="4">0</div><div class="t">Production products</div></div>
+      <div class="stat reveal"><div class="n" data-count="3">0</div><div class="t">Continents of clients</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow reveal">What I bring</div>
+    <h2 class="reveal">Technical toolkit</h2>
+    <p class="lead reveal">Front-end polish, back-end rigor, and cloud-native thinking — comfortable owning a feature from UI state to serverless deployment.</p>
+    <div class="skills">
+      <div class="skill-card reveal">
+        <h3><span class="ic">🎨</span> Frontend</h3>
+        <div class="bar"><div class="top"><span>React.js / Hooks / Context</span><span class="pct">95%</span></div><div class="track"><div class="fill" data-w="95"></div></div></div>
+        <div class="bar"><div class="top"><span>Redux</span><span class="pct">88%</span></div><div class="track"><div class="fill" data-w="88"></div></div></div>
+        <div class="bar"><div class="top"><span>TypeScript / ES6+</span><span class="pct">90%</span></div><div class="track"><div class="fill" data-w="90"></div></div></div>
+        <div class="bar"><div class="top"><span>Tailwind / Material UI / Responsive</span><span class="pct">90%</span></div><div class="track"><div class="fill" data-w="90"></div></div></div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="ic">🔧</span> Backend</h3>
+        <div class="bar"><div class="top"><span>Node.js / Express.js</span><span class="pct">92%</span></div><div class="track"><div class="fill" data-w="92"></div></div></div>
+        <div class="bar"><div class="top"><span>RESTful API Design</span><span class="pct">90%</span></div><div class="track"><div class="fill" data-w="90"></div></div></div>
+        <div class="bar"><div class="top"><span>JWT / OAuth / Auth</span><span class="pct">85%</span></div><div class="track"><div class="fill" data-w="85"></div></div></div>
+        <div class="bar"><div class="top"><span>Microservices / MVC</span><span class="pct">82%</span></div><div class="track"><div class="fill" data-w="82"></div></div></div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="ic">☁</span> Cloud &amp; DevOps</h3>
+        <div class="bar"><div class="top"><span>AWS (Lambda, S3, Cognito, RDS, EC2, SFTP)</span><span class="pct">88%</span></div><div class="track"><div class="fill" data-w="88"></div></div></div>
+        <div class="bar"><div class="top"><span>Serverless Architecture</span><span class="pct">85%</span></div><div class="track"><div class="fill" data-w="85"></div></div></div>
+        <div class="bar"><div class="top"><span>Docker</span><span class="pct">80%</span></div><div class="track"><div class="fill" data-w="80"></div></div></div>
+        <div class="bar"><div class="top"><span>CI/CD · GitHub Actions</span><span class="pct">82%</span></div><div class="track"><div class="fill" data-w="82"></div></div></div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="ic">🗄</span> Data &amp; Practices</h3>
+        <div class="chips" style="margin-bottom:18px">
+          <span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">SQL Server</span><span class="chip">MongoDB</span>
+          <span class="chip">Multi-tenant SaaS</span><span class="chip">Performance Optimization</span>
+          <span class="chip">Agile / Scrum</span><span class="chip">Git / GitHub</span><span class="chip">Jira</span><span class="chip">Postman</span>
+        </div>
+        <p style="color:var(--muted);font-size:.88rem">Experienced collaborating directly with US- and Australia-based clients across time zones in Agile teams.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow reveal">Career path</div>
+    <h2 class="reveal">Experience timeline</h2>
+    <p class="lead reveal">Growing from full-stack developer to senior — owning larger architecture and direct client relationships across healthcare, ERP and data platforms.</p>
+    <div class="tl">
+      <div class="tl-item reveal">
+        <span class="node"></span>
+        <div class="when">Mar 2022 — Present</div>
+        <h3>Senior Software Developer</h3>
+        <div class="org">IncubXperts Techno Consulting Pvt. Ltd., Pune</div>
+        <ul>
+          <li><b>MedForce (an IQVIA business) — Data Feeds:</b> built &amp; maintained high-volume healthcare data-processing jobs ensuring accurate, timely delivery; collaborated directly with US-based clients and managers.</li>
+          <li><b>eTools — Cloud ERP Migration:</b> migrated legacy Windows apps to a multi-tenant SaaS ERP for aged-care providers; front-end dev, API integration &amp; scalable architecture in a 20+ team.</li>
+          <li><b>African Elephant Database (Australian client):</b> full-stack build of AfricanElephantDatabase.org — responsive UI, serverless APIs, authentication and cloud storage on AWS Lambda, S3 &amp; Cognito.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <span class="node"></span>
+        <div class="when">Apr 2021 — Feb 2022</div>
+        <h3>Software Developer</h3>
+        <div class="org">CodeToArt Technology Pvt. Ltd., Pune</div>
+        <ul>
+          <li><b>eProcessify — Workflow Automation:</b> built a workflow management system automating task creation, client follow-ups and payment reminders with an intuitive notification interface.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <span class="node"></span>
+        <div class="when">2019 — 2022</div>
+        <h3>Master of Computer Applications (MCA)</h3>
+        <div class="org">Sinhgad Institute of Management (SIOM), University of Pune</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow reveal">Selected work</div>
+    <h2 class="reveal">Projects with impact</h2>
+    <p class="lead reveal">From conservation data platforms to multi-tenant ERP — shipped with real users across the globe.</p>
+    <div class="grid3">
+      <div class="proj reveal">
+        <div class="tag">ETL Jobs</div>
+        <h3>Data Feeds</h3>
+        <p>Built and maintained ETL jobs and back-end data pipelines for expense and healthcare applications, ensuring accurate, on-time data delivery. Partnered directly with US clients to gather requirements, ship new features, and demo releases.</p>
+        <div class="stack"><span>SQL</span><span>AWS SFTP</span><span>PHP</span><span>Cron Jobs</span><span>Javascript</span></div>
+      </div>
+      <div class="proj reveal">
+        <div class="tag">Cloud · Serverless</div>
+        <h3>African Elephant Database</h3>
+        <p>Full-stack platform hosting historical &amp; survey data from AfESG reports — responsive React UI, serverless APIs and authentication on AWS Lambda, S3 &amp; Cognito.</p>
+         <div class="stack"><span>React</span><span>Node</span><span>AWS Lambda</span><span>S3</span><span>Cognito</span><span>Serverless</span><span>PostgreSQL</span></div>
+      </div>
+      <div class="proj reveal">
+        <div class="tag">SaaS · Multi-tenant</div>
+        <h3>eTools Cloud ERP</h3>
+        <p>Migration of legacy Windows applications to a cloud-based SaaS ERP for aged-care providers — scalable multi-tenant architecture, API integration and modern front-end.</p>
+        <div class="stack"><span>React</span><span>TypeScript</span><span>REST</span><span>Sass</span></div>
+      </div>
+      <div class="proj reveal">
+        <div class="tag">Automation · Workflow</div>
+        <h3>eProcessify</h3>
+        <p>Workflow management platform automating task creation, client follow-ups and payment reminders with a clean process &amp; notification interface.</p>
+        <div class="stack"><span>React</span><span>Node</span><span>Axios</span><span>REST</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div class="eyebrow reveal">Get in touch</div>
+    <h2 class="reveal">Let's build something that scales</h2>
+    <p class="lead reveal">Open to Senior Full-Stack &amp; Cloud roles in the Netherlands, Dubai, Abu Dhabi and Australia. Visa sponsorship welcome.</p>
+    <div class="links reveal">
+      <a class="btn primary" href="mailto:shifashaikhmuzz@gmail.com">✉ shifashaikhmuzz@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/shifa-s-14b936183/" target="_blank" rel="noopener">in LinkedIn</a>
+      <a class="btn ghost" href="tel:+918208804987">☎ +91 82088 04987</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> Shifa Shaikh · Built as a single static page — deploy anywhere.</div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      e.target.querySelectorAll?.('.fill').forEach(f=>f.style.width=f.dataset.w+'%');
+      const n=e.target.querySelector?.('.n[data-count]');
+      if(n&&!n.dataset.done){n.dataset.done=1;animate(n);}
+      io.unobserve(e.target);
+    }
+  }),{threshold:.18});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  function animate(el){
+    const target=+el.dataset.count, suf=el.dataset.suffix||'';
+    let cur=0; const step=Math.max(1,Math.round(target/40));
+    const t=setInterval(()=>{cur+=step; if(cur>=target){cur=target;clearInterval(t);} el.textContent=cur+suf;},28);
+  }
+</script>
+</body>
+</html>
